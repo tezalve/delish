@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Banner from './Banner/Banner';
 import Chef from './Chef/Chef';
 import { CardGroup } from 'react-bootstrap';
+import Reviews from './Reviews/Reviews';
 
 const Home = () => {
 
@@ -20,7 +21,7 @@ const Home = () => {
             <div className='py-5'>
                 <Banner></Banner>
             </div>
-            <div>
+            <div className='py-5'>
                 <div className='text-center' style={{ fontFamily: "Karasha" }}>
                     <h1>MEET OUR AMAZING CHEFS</h1>
                     <p>some good guys</p>
@@ -33,6 +34,13 @@ const Home = () => {
                         ></Chef>)
                     }
                 </CardGroup>
+            </div>
+            <div className='py-5'>
+                <div className='text-center' style={{ fontFamily: "Karasha" }}>
+                    <h1>PEOPLE SAY ABOUT US</h1>
+                    <p>testimonials</p>
+                </div>
+                <Reviews></Reviews>
             </div>
         </div>
     );

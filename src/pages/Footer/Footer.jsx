@@ -13,10 +13,10 @@ import { ReactSVG } from 'react-svg';
 const Footer = () => {
     return (
         <div>
-            <Card className="bg-dark text-white my-auto">
+            <Card className="text-white">
                 <Card.Img src={footer} alt="Card image" />
-                <Card.ImgOverlay className='my-auto'>
-                    <div className='my-auto'>
+                <Card.ImgOverlay>
+                    <div>
                         <div className='d-flex justify-content-around align-items-center'>
                             <h2>+880 1221213490</h2>
                             <h1 style={{ color: "red" }}>:</h1>
