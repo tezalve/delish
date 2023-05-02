@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProviders';
+import { GithubAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -25,6 +26,28 @@ const Login = () => {
             })
     }
 
+    const handleGoogleSingIn = () => {
+        signInWithGoogle()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+    const handleGithubSingIn = () => {
+        signInWithGithub()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
     return (
         <div className='mx-auto w-50 pt-5'>
             <h3>Login</h3>
@@ -42,8 +65,14 @@ const Login = () => {
                     Login
                 </Button>
                 <Link to={'/register'}>
-                    <p>New To Prac Auth?</p>
+                    <p>New To ?</p>
                 </Link>
+                <Button onClick={handleGoogleSingIn} variant="secondary">
+                    Google Login
+                </Button>
+                <Button onClick={handleGithubSingIn} variant="secondary">
+                    Github Login
+                </Button>
             </Form>
         </div>
     );

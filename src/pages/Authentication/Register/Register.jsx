@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../../../providers/AuthProviders';
+import { updateProfile } from 'firebase/auth';
 const Register = () => {
 
     const { user, createUser } = useContext(AuthContext);
@@ -17,12 +18,26 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
+                updateUserData(result.user, name, url);
                 console.log(loggedUser);
                 form.reset();
             })
             .catch(error => {
                 console.log(error);
             })
+
+        const updateUserData = (user, name, url) => {
+            updateProfile(user, {
+                displayName: name,
+                photoURL: url
+            })
+            .then(() => {
+                console.log('user name url updated');
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        }
     }
 
     return (
@@ -36,12 +51,12 @@ const Register = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name="email" placeholder="Enter email" />
+                    <Form.Control type="email" name="email" placeholder="Enter email" required/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name="password" placeholder="Password" />
+                    <Form.Control type="password" name="password" placeholder="Password" required/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicURL">
