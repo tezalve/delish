@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import footer from "../../assets/images/footer.jpg"
+import footer from "../../../public/images/footer.jpg"
 
 const Footer = () => {
     return (

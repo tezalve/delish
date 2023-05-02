@@ -1,23 +1,17 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../providers/AuthProviders';
-import { Image } from 'react-bootstrap';
+import './Home.css'
+import Banner from './Banner/Banner';
+import Chefs from './Chefs/Chefs';
 
 const Home = () => {
-
-    const { user } = useContext(AuthContext);
-
     return (
         <div>
-            <h2>Home</h2>
-            {
-                user ?
-                    <>
-                        <h2>{user.email}</h2>
-                    </>
-                    :
-                    <>
-                    </>
-            }
+            <div className='py-5'>
+                <Banner></Banner>
+            </div>
+            <div className='py-5'>
+                <Chefs></Chefs>
+            </div>
         </div>
     );
 };
