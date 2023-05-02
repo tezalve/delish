@@ -11,7 +11,7 @@ const Navb = () => {
                             <a className="nav-link" href="#">Delish</a>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Home</a>
+                            <Link className='text-reset text-decoration-none' to={"/"}>Home</Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">Blog</a>

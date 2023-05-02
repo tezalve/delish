@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProviders';
 
 const Login = () => {
+
+    const { signIn } = useContext(AuthContext);
+
     const handleLogin = event => {
         event.preventDefault();
 
@@ -10,6 +14,15 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
@@ -23,7 +36,7 @@ const Login = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" required/>
+                    <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Login

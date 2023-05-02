@@ -1,26 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
-
+import { AuthContext } from '../../../providers/AuthProviders';
 const Register = () => {
+
+    const { user, createUser } = useContext(AuthContext);
+
 
     const handleRegister = event => {
         event.preventDefault();
-
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const url = form.url.value;
-        console.log(name, email, password, url);
+
+        createUser(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                form.reset();
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
         <div>
             <h3>Register</h3>
             <Form onSubmit={handleRegister} className='mx-auto w-50 pt-5'>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="name" name="name" placeholder="Enter name" />
+                    <Form.Control type="text" name="name" placeholder="Enter name" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -33,7 +44,7 @@ const Register = () => {
                     <Form.Control type="password" name="password" placeholder="Password" />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3" controlId="formBasicURL">
                     <Form.Label>Photo URL</Form.Label>
                     <Form.Control type="text" name="url" placeholder="Photo URL" />
                 </Form.Group>
