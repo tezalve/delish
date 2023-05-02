@@ -14,7 +14,7 @@ const Banner = () => {
                         src={slide_1}
                         alt="First slide"
                     />
-                    <Carousel.Caption>
+                    <Carousel.Caption style={{ top: "1.25rem" }}>
                         <h1 style={{ textTransform: "uppercase" }}>The Taste Of Japan</h1>
                         <h2>satisfy the soul, not just the palate</h2>
                     </Carousel.Caption>
@@ -26,7 +26,7 @@ const Banner = () => {
                         alt="Second slide"
                     />
 
-                    <Carousel.Caption>
+                    <Carousel.Caption style={{ top: "1.25rem" }}>
                         <h1 style={{ textTransform: "uppercase" }}>Exquisite Asian Cuisine</h1>
                         <h2>explore the eastern culture and food</h2>
                     </Carousel.Caption>
@@ -38,7 +38,7 @@ const Banner = () => {
                         alt="Third slide"
                     />
 
-                    <Carousel.Caption>
+                    <Carousel.Caption style={{ top: "1.25rem" }}>
                         <h1 style={{ textTransform: "uppercase" }}>Top Quality Food</h1>
                         <h2>enjoy the atmosphere of our website</h2>
                     </Carousel.Caption>

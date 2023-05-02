@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import './Home.css'
 import Banner from './Banner/Banner';
 import Chef from './Chef/Chef';
 import { CardGroup } from 'react-bootstrap';

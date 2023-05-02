@@ -1,19 +1,50 @@
 import React from 'react';
+import './Footer.css'
 import { Card } from 'react-bootstrap';
 import footer from "../../../public/images/footer.jpg"
+import logo_2 from "../../../public/images/logo-2.webp"
+import facebook from "../../../public/icons/facebook-f.svg"
+import twitter from "../../../public/icons/twitter.svg"
+import instagram from "../../../public/icons/instagram.svg"
+import github from "../../../public/icons/github.svg"
+import { ReactSVG } from 'react-svg';
+
 
 const Footer = () => {
     return (
         <div>
-            <Card className="bg-dark text-white">
+            <Card className="bg-dark text-white my-auto">
                 <Card.Img src={footer} alt="Card image" />
-                <Card.ImgOverlay>
-                    <Card.Title>Footer</Card.Title>
-                    <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in
-                        to additional content. This content is a little bit longer.
-                    </Card.Text>
-                    <Card.Text>Last updated 3 mins ago</Card.Text>
+                <Card.ImgOverlay className='my-auto'>
+                    <div className='my-auto'>
+                        <div className='d-flex justify-content-around align-items-center'>
+                            <h2>+880 1221213490</h2>
+                            <h1 style={{ color: "red" }}>:</h1>
+                            <div>
+                                <img src={logo_2} alt="" />
+                                <h1 className='text-center' style={{ fontFamily: "Bento" }}>Delish</h1>
+                            </div>
+                            <h1 style={{ color: "red" }}>:</h1>
+                            <h2>319, Ginja Street</h2>
+                        </div>
+                        <div className='d-flex justify-content-center'>
+                            <div className='bg-danger m-2 p-2 i-tra'>
+                                <ReactSVG style={{ width: "20px", height: "20px" }} src={facebook} />
+                            </div>
+                            <div className='bg-danger m-2 p-2 i-tra'>
+                                <ReactSVG style={{ width: "20px", height: "20px" }} src={twitter} />
+                            </div>
+                            <div className='bg-danger m-2 p-2 i-tra'>
+                                <ReactSVG style={{ width: "20px", height: "20px" }} src={instagram} />
+                            </div>
+                            <div className='bg-danger m-2 p-2 i-tra'>
+                                <ReactSVG style={{ width: "20px", height: "20px" }} src={github} />
+                            </div>
+                        </div>
+                        <div>
+                            <h4 className='text-center'>@Copyright 2023</h4>
+                        </div>
+                    </div>
                 </Card.ImgOverlay>
             </Card>
         </div>
