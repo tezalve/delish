@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 
 const Navb = () => {
     const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
-        .then(() => [])
-        .then(error => console.error(error));
+            .then(() => [])
+            .then(error => console.error(error));
     }
 
     return (
@@ -30,8 +30,10 @@ const Navb = () => {
                             {
                                 user ?
                                     <>
-                                        <span className='p-1'>{user.email}</span>
-                                        <Button onClick={handleLogOut}>
+                                        <span className='p-1'>
+                                            <Image title={user.displayName} className='' style={{width: "50px", height: "50px"}} src={user.photoURL} roundedCircle></Image>
+                                        </span>
+                                        <Button className='btn-secondary' onClick={handleLogOut}>
                                             Signout
                                         </Button>
                                     </>

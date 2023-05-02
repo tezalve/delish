@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProviders';
-import { GithubAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
 
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const  [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
         event.preventDefault();
@@ -19,10 +22,14 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                console.log(loggedUser, from);
+                setError('');
+                form.reset();
+                navigate(from);
             })
             .catch(error => {
                 console.log(error);
+                setError('Wrong email or password');
             })
     }
 
@@ -31,6 +38,7 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate(from);
         })
         .catch(error => {
             console.log(error);
@@ -42,6 +50,7 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate(from);
         })
         .catch(error => {
             console.log(error);
@@ -65,7 +74,7 @@ const Login = () => {
                     Login
                 </Button>
                 <Link to={'/register'}>
-                    <p>New To ?</p>
+                    <p>New To delish?</p>
                 </Link>
                 <Button onClick={handleGoogleSingIn} variant="secondary">
                     Google Login
@@ -73,6 +82,7 @@ const Login = () => {
                 <Button onClick={handleGithubSingIn} variant="secondary">
                     Github Login
                 </Button>
+                <p className='text-danger'>{error}</p>
             </Form>
         </div>
     );

@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../../../providers/AuthProviders';
 import { updateProfile } from 'firebase/auth';
 const Register = () => {
 
     const { user, createUser } = useContext(AuthContext);
-
+    const  [perror, setPerror] = useState('');
+    const  [success, setSuccess] = useState('');
 
     const handleRegister = event => {
         event.preventDefault();
@@ -14,11 +15,17 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const url = form.url.value;
+        if(password.length < 6){
+            setPerror('Password length needs to be atleast 6');
+            return;
+        }
 
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 updateUserData(result.user, name, url);
+                setSuccess(`Successfully registered ${name}`)
+                setPerror('');
                 console.log(loggedUser);
                 form.reset();
             })
@@ -46,7 +53,7 @@ const Register = () => {
             <Form onSubmit={handleRegister} className='mx-auto w-50 pt-5'>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name="name" placeholder="Enter name" />
+                    <Form.Control type="text" name="name" placeholder="Enter name" required/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -57,15 +64,19 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name="password" placeholder="Password" required/>
+                    <p className='text-danger'>{perror}</p>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicURL">
                     <Form.Label>Photo URL</Form.Label>
                     <Form.Control type="text" name="url" placeholder="Photo URL" />
                 </Form.Group>
+
                 <Button variant="primary" type="submit">
                     Register
                 </Button>
+
+                <p className='text-success'>{success}</p>
             </Form>
         </div>
     );

@@ -12,8 +12,7 @@ const Home = () => {
             {
                 user ?
                     <>
-                        <h2>{user.displayName}</h2>
-                        <Image src={user.photoURL} fluid />;
+                        <h2>{user.email}</h2>
                     </>
                     :
                     <>
