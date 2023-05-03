@@ -3,6 +3,7 @@ import Banner from './Banner/Banner';
 import Chef from './Chef/Chef';
 import { CardGroup } from 'react-bootstrap';
 import Reviews from './Reviews/Reviews';
+import review from '../../../public/images/review.jpg'
 
 const Home = () => {
 
@@ -35,8 +36,8 @@ const Home = () => {
                     }
                 </CardGroup>
             </div>
-            <div className='py-5'>
-                <div className='text-center' style={{ fontFamily: "Karasha" }}>
+            <div className='py-5 bg-image' style={{backgroundImage: `url(${review})`}}>
+                <div className='text-center text-white' style={{ fontFamily: "Karasha" }}>
                     <h1>PEOPLE SAY ABOUT US</h1>
                     <p>testimonials</p>
                 </div>
