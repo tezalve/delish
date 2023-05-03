@@ -26,6 +26,13 @@ const ChefDetails = () => {
             .then(data => setRecipeDetails(data))
     }, [])
 
+    // for some reason after clicking view recipes 
+    // button scrolling to the same location as last 
+    // page, this is the solution to that.
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div className='py-5'>
             {/* chefs banner */}
@@ -64,7 +71,7 @@ const ChefDetails = () => {
             {/* chefs recipes */}
             <div className='py-5'>
                 <div className='text-center' style={{ fontFamily: "Karasha" }}>
-                    <h1 style={{textTransform: "uppercase"}}>Incredible Recipes</h1>
+                    <h1 style={{ textTransform: "uppercase" }}>Incredible Recipes</h1>
                     <p>mouth watering</p>
                 </div>
                 <div className='row bg-image g-0' style={{ backgroundImage: `url(${recipe})` }}>
@@ -78,7 +85,7 @@ const ChefDetails = () => {
                 </div>
             </div>
             {/* putting the toast container */}
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     );
 };

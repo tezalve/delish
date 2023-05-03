@@ -24,10 +24,11 @@ const Recipe = ({ recipe }) => {
                             <ul>
                                 {
                                     recipe.ingredients.map(ingredient =>
-                                        <li key={recipe.ingredients.indexOf(ingredient)}>
+                                        <li key={Math.random((recipe.ingredients.indexOf(ingredient)+1)*99)}>
                                             {ingredient}
                                         </li>
-                                    )}
+                                    )
+                                }
                             </ul>
                         </div>
                     </div>

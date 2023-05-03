@@ -70,19 +70,19 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="danger" type="submit">
                     Login
                 </Button>
+                <p className='text-danger'>{error}</p>
                 <Link to={'/register'}>
                     <p>New To delish?</p>
                 </Link>
-                <Button onClick={handleGoogleSingIn} variant="secondary">
+                <Button style={{marginRight: "10px"}} onClick={handleGoogleSingIn} variant="info">
                     Google Login
                 </Button>
-                <Button onClick={handleGithubSingIn} variant="secondary">
+                <Button onClick={handleGithubSingIn} variant="dark">
                     Github Login
                 </Button>
-                <p className='text-danger'>{error}</p>
             </Form>
         </div>
     );
