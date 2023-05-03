@@ -12,7 +12,7 @@ const Main = () => {
             </div>
             <Navb></Navb>
             <Outlet></Outlet>
-            <div className='py-5'>
+            <div className='pt-5'>
                 <Footer></Footer>
             </div>
         </div>

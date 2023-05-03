@@ -15,12 +15,12 @@ const Footer = () => {
         <div className='bg-image text-white' style={{backgroundImage: `url(${footer})`}}>
             <div className='d-flex justify-content-around align-items-center'>
                 <h2>+880 1221213490</h2>
-                <h1 style={{ color: "red" }}>:</h1>
+                <h1 style={{ color: "white" }}>:</h1>
                 <div>
                     <img src={logo_2} alt="" />
                     <h1 className='text-center' style={{ fontFamily: "Bento" }}>Delish</h1>
                 </div>
-                <h1 style={{ color: "red" }}>:</h1>
+                <h1 style={{ color: "white" }}>:</h1>
                 <h2>319, Ginja Street</h2>
             </div>
             <div className='d-flex justify-content-center'>
@@ -38,7 +38,7 @@ const Footer = () => {
                 </div>
             </div>
             <div>
-                <h4 className='text-center'>@Copyright 2023</h4>
+                <h4 className='text-center my-auto p-1'>@Copyright 2023</h4>
             </div>
         </div>
     );

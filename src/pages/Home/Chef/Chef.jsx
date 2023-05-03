@@ -24,7 +24,7 @@ const Chefs = ({ chef }) => {
                             <FontAwesomeIcon icon={faThumbsUp} /> {chef.likes}
                         </Card.Text>
                         <Card.Text className='btn-tra'>
-                            <Link className='text-reset text-decoration-none border rounded p-1'>View Recipes</Link>
+                            <Link to={'/chefdetails'} state={{ chef }} className='text-reset text-decoration-none border rounded p-1'>View Recipes</Link>
                         </Card.Text>
                     </Card.Body>
                 </Card>

@@ -5,6 +5,7 @@ import Register from "../pages/Authentication/Register/Register";
 import Login from "../pages/Authentication/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import Notfound from "../pages/Notfound/Notfound";
+import ChefDetails from "../pages/ChefDetails/ChefDetails";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/chefdetails',
+        element: <ChefDetails></ChefDetails>
       },
       {
         path: '*',
