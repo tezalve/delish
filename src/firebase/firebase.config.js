@@ -4,13 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+console.log('environment variable', import.meta.env.VITE_PASS);
 const firebaseConfig = {
-  apiKey: "AIzaSyAv8ZKY9UJ32JQaSE_S7a9WjqYSkfX1Z6g",
-  authDomain: "delish-15656.firebaseapp.com",
-  projectId: "delish-15656",
-  storageBucket: "delish-15656.appspot.com",
-  messagingSenderId: "649975777824",
-  appId: "1:649975777824:web:6274392d410130d7870a45"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase
