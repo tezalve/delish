@@ -6,6 +6,7 @@ import Login from "../pages/Authentication/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import Notfound from "../pages/Notfound/Notfound";
 import ChefDetails from "../pages/ChefDetails/ChefDetails";
+import Blog from "../pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
       },
       {
         path: '/chefdetails/:id',
