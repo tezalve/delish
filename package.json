@@ -23,6 +23,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.0",
     "react-svg": "^16.1.10",
+    "react-toastify": "^9.1.2",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
