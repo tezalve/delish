@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import slider_1 from '../../../public/images/slider-1.jpg'
 import recipe from '../../../public/images/recipe.webp'
 import facebook from "../../../public/icons/facebook-f.svg"
@@ -12,23 +11,21 @@ import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faMarker, faTurnUp } from '@fortawesome/free-solid-svg-icons';
 import Recipe from './Recipe/Recipe';
 import { ToastContainer } from 'react-toastify';
+import { useLoaderData } from 'react-router-dom';
 
 const ChefDetails = () => {
 
-    const location = useLocation();
-    const { chef } = location.state;
+    // data from loader
+    const chef = useLoaderData();
 
+    // direct load using useEffect
     const [recipeDetails, setRecipeDetails] = useState([]);
-
     useEffect(() => {
         fetch(`http://localhost:5000/recipes/${chef.id}`)
             .then(res => res.json())
             .then(data => setRecipeDetails(data))
     }, [])
 
-    console.log(recipeDetails);
-
-    console.log(chef);
     return (
         <div className='py-5'>
             {/* chefs banner */}

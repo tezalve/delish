@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element:<PrivateRoute><Home></Home></PrivateRoute>
+        element: <Home></Home>
       },
       {
         path: '/login',
@@ -25,8 +25,9 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: '/chefdetails',
-        element: <ChefDetails></ChefDetails>
+        path: '/chefdetails/:id',
+        element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
+        loader:  ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
       },
       {
         path: '*',
