@@ -37,10 +37,10 @@ const Recipe = ({ recipe }) => {
                         <div>
                             {recipe.cooking_method}
                         </div>
-                        <div>
+                        <div className='py-3'>
                             <FontAwesomeIcon icon={faStar} /> {recipe.rating}
                         </div>
-                        <div>
+                        <div className='py-3'>
                             <Button onClick={handleClick} className='btn-danger text-reset text-decoration-none border rounded py-1'><FontAwesomeIcon icon={faHeart} /></Button>
                         </div>
                     </div>

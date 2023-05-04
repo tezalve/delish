@@ -21,7 +21,7 @@ const ChefDetails = () => {
     // direct load using useEffect
     const [recipeDetails, setRecipeDetails] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/recipes/${chef.id}`)
+        fetch(`https://delish-server-tezalve-gmailcom.vercel.app/recipes/${chef.id}`)
             .then(res => res.json())
             .then(data => setRecipeDetails(data))
     }, [])

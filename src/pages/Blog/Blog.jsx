@@ -1,15 +1,28 @@
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useContext } from 'react';
 
 // react-to-pdf package is probably deprecated
 // had to install using --force and also had 
 // to declare module name in a typescript file
 import Pdf from "react-to-pdf";
+import { AuthContext } from '../../providers/AuthProviders';
+import { Spinner } from 'react-bootstrap';
 
 const ref = React.createRef();
 
 const Blog = () => {
+
+    const { loading } = useContext(AuthContext);
+
+    if (loading) {
+        return (
+            <div>
+                <Spinner style={{ position: "fixed", left: "50%" }} animation="border" variant="primary" />
+            </div>
+        );
+    }
+
     return (
         <div className='p-5'>
             <div ref={ref}>

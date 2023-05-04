@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProviders';
 import { Navigate, useLocation } from 'react-router-dom';
-import { ProgressBar, Spinner } from 'react-bootstrap';
+import {  Spinner } from 'react-bootstrap';
 
 const PrivateRoute = ({ children }) => {
 
@@ -12,7 +12,6 @@ const PrivateRoute = ({ children }) => {
     if (loading) {
         return (
             <div>
-                <ProgressBar animated now={100} />
                 <Spinner style = {{position: "fixed", left: "50%"}} animation="border" variant="primary" />
             </div>
         );

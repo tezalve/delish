@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Banner from './Banner/Banner';
 import Chef from './Chef/Chef';
 import { CardGroup, Spinner } from 'react-bootstrap';
 import Reviews from './Reviews/Reviews';
 import review from '../../../public/images/review.jpg'
 import Story from './Story/Story';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Home = () => {
 
     const [chefs, setChefs] = useState([]);
 
-    const [loading, setloading] = useState(false);
+    const { loading } = useContext(AuthContext);
 
     useEffect(() => {
-        setloading(true);
-        fetch('http://localhost:5000/chefs')
+        fetch('https://delish-server-tezalve-gmailcom.vercel.app/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))
-        setloading(false);
     }, [])
 
     // loading state to show spinner
