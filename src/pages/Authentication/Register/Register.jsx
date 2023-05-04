@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../../../providers/AuthProviders';
 import { updateProfile } from 'firebase/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const Register = () => {
 
     const { user, createUser } = useContext(AuthContext);
@@ -32,12 +33,11 @@ const Register = () => {
                 updateUserData(result.user, name, url);
                 setSuccess(`Successfully registered ${name}`)
                 setPerror('');
-                console.log(loggedUser);
                 form.reset();
                 navigate(from);
             })
             .catch(error => {
-                console.log(error);
+                console.error(error);
             })
 
         const updateUserData = (user, name, url) => {
@@ -46,10 +46,10 @@ const Register = () => {
                 photoURL: url
             })
             .then(() => {
-                console.log('user name url updated');
+                toast.success(`welcome ${name}`)
             })
             .catch(error => {
-                console.log(error);
+                console.error(error);
             })
         }
     }

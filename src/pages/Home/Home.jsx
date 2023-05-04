@@ -20,8 +20,6 @@ const Home = () => {
         setloading(false);
     }, [])
 
-    console.log(chefs);
-
     // loading state to show spinner
     if (loading) {
         return (

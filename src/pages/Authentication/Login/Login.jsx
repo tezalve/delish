@@ -18,18 +18,16 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser, from);
                 setError('');
                 form.reset();
                 navigate(from);
             })
             .catch(error => {
-                console.log(error);
+                console.error(error);
                 setError('Wrong email or password');
             })
     }
@@ -38,11 +36,10 @@ const Login = () => {
         signInWithGoogle()
         .then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser);
             navigate(from);
         })
         .catch(error => {
-            console.log(error);
+            console.error(error);
         })
     }
 
@@ -50,11 +47,10 @@ const Login = () => {
         signInWithGithub()
         .then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser);
             navigate(from);
         })
         .catch(error => {
-            console.log(error);
+            console.error(error);
         })
     }
 

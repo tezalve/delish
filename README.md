@@ -11,8 +11,9 @@
 * can register to this website by email/password, google and github
 * detail page has chefs details, bio and some recipe cards of that chef
 * each recipe cards have data are rendered using data that came from the server
-* recipe cards have favourite btn that when clicked shows a toaster and disables it (doesn't save anything to storage)
+* recipe card have a favourite btn that when clicked shows a toaster and disables it (doesn't save anything to storage)
 * Has a Blog page that has answers to some questions
+* blog page also has a button that generates a pdf of that page (react components)
 * Undefined routes are handled in this project 
 * all pages are responsive
 * Many more features
