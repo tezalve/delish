@@ -11,12 +11,13 @@ import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faMarker, faTurnUp } from '@fortawesome/free-solid-svg-icons';
 import Recipe from './Recipe/Recipe';
 import { ToastContainer } from 'react-toastify';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const ChefDetails = () => {
 
     // data from loader
     const chef = useLoaderData();
+    const navigate = useNavigate();
 
     // direct load using useEffect
     const [recipeDetails, setRecipeDetails] = useState([]);
@@ -32,6 +33,11 @@ const ChefDetails = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
+    // redirecting to not found page when no chef data found
+    if(Object.keys(chef).length === 0){
+        navigate('*');
+    }
 
     return (
         <div className='py-5'>
