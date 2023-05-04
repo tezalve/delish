@@ -8,7 +8,6 @@ const Register = () => {
 
     const { user, createUser } = useContext(AuthContext);
     const  [perror, setPerror] = useState('');
-    const  [success, setSuccess] = useState('');
 
     
     const navigate = useNavigate();
@@ -31,13 +30,14 @@ const Register = () => {
             .then(result => {
                 const loggedUser = result.user;
                 updateUserData(result.user, name, url);
-                setSuccess(`Successfully registered ${name}`)
+                toast.success(`welcome ${name}`);
                 setPerror('');
                 form.reset();
                 navigate(from);
             })
             .catch(error => {
                 console.error(error);
+                setPerror('Probably Email Already Exists, Maybe try to login?');
             })
 
         const updateUserData = (user, name, url) => {
@@ -46,7 +46,7 @@ const Register = () => {
                 photoURL: url
             })
             .then(() => {
-                toast.success(`welcome ${name}`)
+                
             })
             .catch(error => {
                 console.error(error);
@@ -71,7 +71,6 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name="password" placeholder="*Password" required/>
-                    <p className='text-danger'>{perror}</p>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicURL">
@@ -82,8 +81,7 @@ const Register = () => {
                 <Button variant="danger" type="submit">
                     Register
                 </Button>
-
-                <p className='text-success'>{success}</p>
+                <p className='text-danger'>{perror}</p>
             </Form>
         </div>
     );

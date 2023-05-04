@@ -84,8 +84,6 @@ const ChefDetails = () => {
                     }
                 </div>
             </div>
-            {/* putting the toast container */}
-            <ToastContainer />
         </div>
     );
 };

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProviders';
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
@@ -24,6 +25,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 setError('');
                 form.reset();
+                toast.success(`Welcome ${loggedUser.displayName}`)
                 navigate(from);
             })
             .catch(error => {
@@ -36,6 +38,7 @@ const Login = () => {
         signInWithGoogle()
         .then(result => {
             const loggedUser = result.user;
+            toast.success(`Welcome ${loggedUser.displayName}`)
             navigate(from);
         })
         .catch(error => {
@@ -47,6 +50,7 @@ const Login = () => {
         signInWithGithub()
         .then(result => {
             const loggedUser = result.user;
+            toast.success(`Welcome ${loggedUser.displayName}`)
             navigate(from);
         })
         .catch(error => {
