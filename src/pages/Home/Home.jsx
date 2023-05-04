@@ -34,7 +34,7 @@ const Home = () => {
                 <Banner></Banner>
             </div>
             <div className='py-5'>
-                <div className='text-center' style={{ fontFamily: "Karasha" }}>
+                <div className='text-center' style={{ fontFamily: "SamuraiBlast" }}>
                     <h1>MEET OUR AMAZING CHEFS</h1>
                     <p>some good guys</p>
                 </div>
@@ -52,7 +52,7 @@ const Home = () => {
                 <Story></Story>
             </div>
             <div className='py-5 bg-image' style={{ backgroundImage: `url(${review})` }}>
-                <div className='text-center text-white' style={{ fontFamily: "Karasha" }}>
+                <div className='text-center text-white' style={{ fontFamily: "SamuraiBlast" }}>
                     <h1>WHAT PEOPLE SAY ABOUT US</h1>
                     <p>testimonials</p>
                 </div>

@@ -8,7 +8,7 @@ const Banner = () => {
     return (
         <div>
             {/* using carousel for banner */}
-            <Carousel style={{ fontFamily: "Karasha" }}>
+            <Carousel style={{ fontFamily: "SamuraiBlast" }}>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
