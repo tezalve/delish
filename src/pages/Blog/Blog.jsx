@@ -1,3 +1,5 @@
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 // react-to-pdf package is probably deprecated
@@ -10,9 +12,6 @@ const ref = React.createRef();
 const Blog = () => {
     return (
         <div className='p-5'>
-            <Pdf targetRef={ref} filename="blog.pdf">
-                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
-            </Pdf>
             <div ref={ref}>
                 <h1>The differences between uncontrolled and controlled components?</h1>
                 <p>
@@ -32,6 +31,11 @@ const Blog = () => {
                     Custom React JS hooks are reusable functions that may be used by a React JS software developer to offer distinctive and unique functionality to React apps. Typically, if a feature is required, a third-party library can be installed to solve the problem. But what if there is no such library with usable hooks? Custom React JS hooks are used to overcome this issue. A custom hook is a JavaScript function with a name that begins with 'use' that may be used to call other hooks.
                 </p>
             </div>
+            <h3>Download Page Components</h3>
+            {/* generating pdf from components */}
+            <Pdf targetRef={ref} filename="blog.pdf">
+                {({ toPdf }) => <button onClick={toPdf}><FontAwesomeIcon icon={faDownload} />Generate Pdf</button>}
+            </Pdf>
         </div>
     );
 };

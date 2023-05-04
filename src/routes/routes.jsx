@@ -30,6 +30,7 @@ const router = createBrowserRouter([
         element: <Blog></Blog>
       },
       {
+        // only route where data was preloaded
         path: '/chefdetails/:id',
         element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
         loader:  ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)

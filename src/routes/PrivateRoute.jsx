@@ -8,6 +8,7 @@ const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
 
+    // to shwo spiiner & progress bar while fetching data
     if (loading) {
         return (
             <div>
@@ -21,6 +22,7 @@ const PrivateRoute = ({ children }) => {
         return children;
     }
 
+    // saving the last route before login 
     return <Navigate to="/login" state={{ from: location }} replace={true} ></Navigate>
 };
 

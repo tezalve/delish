@@ -22,6 +22,7 @@ const Home = () => {
 
     console.log(chefs);
 
+    // loading state to show spinner
     if (loading) {
         return (
             <div>
@@ -42,6 +43,7 @@ const Home = () => {
                 </div>
                 <CardGroup>
                     {
+                        // rendering chef cards dynamically from chefs data
                         chefs.map(chef => <Chef
                             key={chef.id}
                             chef={chef}

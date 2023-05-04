@@ -1,6 +1,7 @@
 import React from 'react';
 import lost from '../../../public/images/lost.jpg'
 
+// for non defined routes
 const Notfound = () => {
     return (
         <div >

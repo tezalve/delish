@@ -7,6 +7,7 @@ import slide_3 from '../../../../public/images/slider-3.jpg'
 const Banner = () => {
     return (
         <div>
+            {/* using carousel for banner */}
             <Carousel style={{ fontFamily: "Karasha" }}>
                 <Carousel.Item>
                     <img

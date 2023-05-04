@@ -34,6 +34,7 @@ const Navb = () => {
                     </li>
                     <li className="nav-item p-1">
                         {
+                            // conditionally showing login button or profile picture and signout
                             user ?
                                 <>
                                     <span className='p-1'>
@@ -52,6 +53,7 @@ const Navb = () => {
                         }
                     </li>
                     {
+                        // not showing register button if user logged in
                         user ? '' 
                         : 
                         <li className="nav-item p-1">

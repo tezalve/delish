@@ -6,6 +6,7 @@ import story from '../../../../public/images/story.webp'
 const Story = () => {
     return (
         <div>
+            {/* this way of using background image is done many times in this project */}
             <div className='bg-image' style={{ backgroundImage: `url(${slider_1})` }}>
                 <h1 className='text-center text-white p-5' style={{ fontFamily: "Karasha" }}>OUR STORY</h1>
             </div>

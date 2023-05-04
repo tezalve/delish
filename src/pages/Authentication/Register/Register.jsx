@@ -55,9 +55,9 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div className='mx-auto w-50 pt-5'>
             <h3>Register</h3>
-            <Form onSubmit={handleRegister} className='mx-auto w-50 pt-5'>
+            <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" name="name" placeholder="*Enter name" required/>

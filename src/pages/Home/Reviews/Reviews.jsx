@@ -3,6 +3,7 @@ import { Carousel } from 'react-bootstrap';
 const Reviews = () => {
     return (
         <div>
+            {/* carousel but without image */}
             <Carousel className='text-center text-white'>
                 <Carousel.Item className='bg-dark'>
                     <p className='m-5'>"I stumbled upon Delsih while searching for new recipes to try and I am so glad I did! This website is a goldmine of delicious recipes from all over the world. The search function is user-friendly and I love how I can filter recipes by cuisine, dietary restrictions, and more. The recipes themselves are easy to follow and always turn out amazing. The pictures are also stunning and make me want to try every recipe on the site! I also appreciate the helpful tips and tricks provided by the website's editors. Overall, I highly recommend Delsih to anyone looking to up their cooking game and explore new flavors." - Yuki Nakamura, Anytown</p>
